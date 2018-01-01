@@ -68,7 +68,7 @@ Setting learning_rate to 0.005 seemed to be reasonable for both final score and 
 
 Number of epochs is set to 20, since the final score does not increased much after 20 epochs.
 
-Other hyper-parameters (batch_size, steps_per_epoch, validation_steps, workers) are determined based on the hardware used in this project. (GeForce GTX 1060 3 GB)
+Other hyper-parameters (batch_size, steps_per_epoch, validation_steps, workers) are determined based on the hardware used in this project. (GeForce GTX TITAN 6GB)
 
 The model is trained using Adam optimizer. A multi-class [cross entropy](https://en.wikipedia.org/wiki/Cross_entropy) is used to calculate the training and validation error.
 
@@ -98,10 +98,10 @@ Example images of input image, ground truth, and predicted image by the trained 
 
 ![image_patrol_non_targ][image_patrol_non_targ]
 
-The performance of the model is measured by true-positive ratio and  Intersection over Union (IoU) metric. The final score of the model reached 0.411516123844, which is above the required score of 0.4.
+The performance of the model is measured by true-positive ratio and  Intersection over Union (IoU) metric. The final score of the model reached 0.425226889836, which is above the required score of 0.4.
 
 ### Limitations
-- The IoU for the target becomes extremely low when the target is far away from the quadcopter. The IoU score in this situation  (0.22494295392225377) is less than 1/3 of the score with folloing_images (0.9129568744909774). This is the bottleneck of the performance of the model on the final score.
+- The IoU for the target becomes extremely low when the target is far away from the quadcopter. The IoU score in this situation  (0.2570857875114857) is less than 1/3 of the score with following_images (0.9116736698114096). This is the bottleneck of the performance of the model on the final score.
 
 - Although the model architecture is not limited to human segmentation, we have to train the model with other datasets in order to follow other objects (dog, cat, car, etc..). If correct images and labels are provided, the model should be able to segment other objects without changing its architecture.
 
@@ -121,8 +121,8 @@ The trained weights of the model are saved in the HDF5 format. They are located 
 
 ```
 ./data/weights/
-  config_model_weights1
-  model_weights1
+  config_model_weights
+  model_weights
 ```
 
 #### notebook
